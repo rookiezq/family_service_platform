@@ -17,6 +17,8 @@ public class TblUserRecord implements Serializable {
 
     private static final long serialVersionUID=1L;
 
+    private String token;
+
     /**
      * 用户编号
      */
@@ -148,6 +150,14 @@ public class TblUserRecord implements Serializable {
      */
     private LocalDateTime createDate;
 
+    public String getToken() {
+        return token;
+    }
+
+    public TblUserRecord setToken(String token) {
+        this.token = token;
+        return this;
+    }
 
     public Integer getId() {
         return id;
