@@ -21,8 +21,8 @@ public class CorsConfig {
         config.addAllowedHeader("*");
         //跨域请求方法 get put delete post
         config.addAllowedMethod("*");
-        //加上了这一句，大致意思是可以携带 cookie
-        //最终的结果是可以 在跨域请求的时候获取同一个 session
+        //这一句，表示可以带cookie，最终可以在跨域请求的时候获取同一个session
+        //如果不加这一句，请求能进来，创建session，响应后会创建cookie，但是响应结果无法获取
         config.setAllowCredentials(true);
         return config;
     }
