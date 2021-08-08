@@ -1,5 +1,7 @@
 package com.rookied.returnJson;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * @author zhangqiang
  * @date 2021/8/7
@@ -62,10 +64,6 @@ public class ReturnObject {
 
     @Override
     public String toString() {
-        return "ReturnObject{" +
-                "message='" + message + '\'' +
-                ", code=" + code +
-                ", result=" + result +
-                '}';
+        return JSONObject.toJSONString(this);
     }
 }
