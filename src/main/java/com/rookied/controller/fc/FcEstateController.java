@@ -36,9 +36,9 @@ public class FcEstateController {
     }
 
     @RequestMapping("/selectEstate")
-    public String selectEstate(Integer code) {
+    public String selectEstate(Integer estateCode) {
         QueryWrapper<FcEstate> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("estate_code", code);
+        queryWrapper.eq("estate_code", estateCode);
         FcEstate estate = fcEstateService.getOne(queryWrapper);
         if (estate != null) {
             return new ReturnObject("住宅编码已存在", 0, null).toString();
