@@ -34,5 +34,16 @@ public class FcEstateController {
         List<TblCompany> companys = fcEstateService.selectCompany();
         return new ReturnObject(companys).toString();
     }
+
+    @RequestMapping("/selectEstate")
+    public String selectEstate(Integer code) {
+        QueryWrapper<FcEstate> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("estate_code", code);
+        FcEstate estate = fcEstateService.getOne(queryWrapper);
+        if (estate != null) {
+            return new ReturnObject("住宅编码已存在", 0, null).toString();
+        }
+        return new ReturnObject("该住宅编码可用", 200, null).toString();
+    }
 }
 
