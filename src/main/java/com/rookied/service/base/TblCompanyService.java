@@ -3,6 +3,8 @@ package com.rookied.service.base;
 import com.rookied.bean.TblCompany;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 企业档案 服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TblCompanyService extends IService<TblCompany> {
 
+     List<TblCompany> selectCompany();
 }
