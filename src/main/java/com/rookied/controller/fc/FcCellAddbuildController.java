@@ -1,4 +1,4 @@
-package com.rookied.controller.base;
+package com.rookied.controller.fc;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
