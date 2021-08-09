@@ -29,6 +29,11 @@ public class ReturnObject {
         this.result = result;
     }
 
+    public ReturnObject(String message, Object result) {
+        this.message = message;
+        this.result = result;
+    }
+
     public ReturnObject(String message, Integer code, Object result) {
         this.message = message;
         this.code = code;

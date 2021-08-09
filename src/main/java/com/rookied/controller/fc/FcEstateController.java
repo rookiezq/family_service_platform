@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -44,6 +45,16 @@ public class FcEstateController {
             return new ReturnObject("住宅编码已存在", 0, null).toString();
         }
         return new ReturnObject("该住宅编码可用", 200, null).toString();
+    }
+
+    @RequestMapping("/insertEstate")
+    public String insertEstate(FcEstate estate) {
+        System.out.println(estate);
+        boolean save = fcEstateService.save(estate);
+        if (save) {
+            return new ReturnObject("1", "房产插入成功").toString();
+        }
+        return new ReturnObject("0",  "房产插入失败").toString();
     }
 }
 
