@@ -29,6 +29,9 @@ public class FcBuildingServiceImpl extends ServiceImpl<FcBuildingMapper, FcBuild
         List<FcBuilding> buildingList = new ArrayList<>(buildingNumber);
         for (int i = 0; i < buildingNumber; i++) {
             FcBuilding fcBuilding = new FcBuilding();
+            //提前设置好一些属性
+            fcBuilding.setBuildingCode("B"+(i+1));
+            fcBuilding.setBuildingName("第"+(i+1)+"号楼");
             fcBuilding.setEstateCode(estateCode);
             //mbp save
             save(fcBuilding);
