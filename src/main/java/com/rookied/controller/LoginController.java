@@ -1,6 +1,5 @@
 package com.rookied.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.rookied.bean.TblUserRecord;
 import com.rookied.returnJson.Permission;
 import com.rookied.returnJson.Permissions;

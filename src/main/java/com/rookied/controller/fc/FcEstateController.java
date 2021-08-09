@@ -6,12 +6,9 @@ import com.rookied.bean.FcEstate;
 import com.rookied.bean.TblCompany;
 import com.rookied.returnJson.ReturnObject;
 import com.rookied.service.base.FcEstateService;
-import com.rookied.service.impl.FcEstateServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
