@@ -37,7 +37,7 @@ public class FcEstateController {
     }
 
     @RequestMapping("/selectEstate")
-    public String selectEstate(Integer estateCode) {
+    public String selectEstate(String estateCode) {
         QueryWrapper<FcEstate> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("estate_code", estateCode);
         FcEstate estate = fcEstateService.getOne(queryWrapper);
