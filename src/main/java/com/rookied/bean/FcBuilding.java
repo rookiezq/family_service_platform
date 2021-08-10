@@ -2,7 +2,8 @@ package com.rookied.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 import java.io.Serializable;
 
 /**
@@ -15,7 +16,7 @@ import java.io.Serializable;
  */
 public class FcBuilding implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自动编号
@@ -66,12 +67,12 @@ public class FcBuilding implements Serializable {
     /**
      * 竣工日期
      */
-    private LocalDateTime finishDate;
+    private LocalDate finishDate;
 
     /**
      * 封顶日期
      */
-    private LocalDateTime overRoofDate;
+    private LocalDate overRoofDate;
 
     /**
      * 装修
@@ -271,20 +272,19 @@ public class FcBuilding implements Serializable {
         this.salePermissionId = salePermissionId;
     }
 
-    public LocalDateTime getFinishDate() {
+    public LocalDate getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(LocalDateTime finishDate) {
-        this.finishDate = finishDate;
-    }
+    public void setFinishDate(String finishDate) {
+        this.finishDate = LocalDate.parse(finishDate);  }
 
-    public LocalDateTime getOverRoofDate() {
+    public LocalDate getOverRoofDate() {
         return overRoofDate;
     }
 
-    public void setOverRoofDate(LocalDateTime overRoofDate) {
-        this.overRoofDate = overRoofDate;
+    public void setOverRoofDate(String overRoofDate) {
+        this.overRoofDate = LocalDate.parse(overRoofDate);
     }
 
     public String getDecorate() {
@@ -490,42 +490,42 @@ public class FcBuilding implements Serializable {
     @Override
     public String toString() {
         return "FcBuilding{" +
-        "id=" + id +
-        ", estateCode=" + estateCode +
-        ", buildingCode=" + buildingCode +
-        ", buildingName=" + buildingName +
-        ", buildingFunction=" + buildingFunction +
-        ", usedArea=" + usedArea +
-        ", buildArea=" + buildArea +
-        ", buildPermissionId=" + buildPermissionId +
-        ", salePermissionId=" + salePermissionId +
-        ", finishDate=" + finishDate +
-        ", overRoofDate=" + overRoofDate +
-        ", decorate=" + decorate +
-        ", structType=" + structType +
-        ", damageGrade=" + damageGrade +
-        ", unitCount=" + unitCount +
-        ", buildingType=" + buildingType +
-        ", cleanFloor=" + cleanFloor +
-        ", mopFloor=" + mopFloor +
-        ", channelArea=" + channelArea +
-        ", elevator=" + elevator +
-        ", channelDoor=" + channelDoor +
-        ", evevatorDoor=" + evevatorDoor +
-        ", waterWellDoor=" + waterWellDoor +
-        ", electricWellDoor=" + electricWellDoor +
-        ", windowShades=" + windowShades +
-        ", hydrant=" + hydrant +
-        ", mirrors=" + mirrors +
-        ", unitDoor=" + unitDoor +
-        ", hardenGroundArea=" + hardenGroundArea +
-        ", greenArea=" + greenArea +
-        ", noGreenArea=" + noGreenArea +
-        ", waterByPerson=" + waterByPerson +
-        ", isElevator=" + isElevator +
-        ", isSecondWaterElectric=" + isSecondWaterElectric +
-        ", randomIdentify=" + randomIdentify +
-        ", remark=" + remark +
-        "}";
+                "id=" + id +
+                ", estateCode=" + estateCode +
+                ", buildingCode=" + buildingCode +
+                ", buildingName=" + buildingName +
+                ", buildingFunction=" + buildingFunction +
+                ", usedArea=" + usedArea +
+                ", buildArea=" + buildArea +
+                ", buildPermissionId=" + buildPermissionId +
+                ", salePermissionId=" + salePermissionId +
+                ", finishDate=" + finishDate +
+                ", overRoofDate=" + overRoofDate +
+                ", decorate=" + decorate +
+                ", structType=" + structType +
+                ", damageGrade=" + damageGrade +
+                ", unitCount=" + unitCount +
+                ", buildingType=" + buildingType +
+                ", cleanFloor=" + cleanFloor +
+                ", mopFloor=" + mopFloor +
+                ", channelArea=" + channelArea +
+                ", elevator=" + elevator +
+                ", channelDoor=" + channelDoor +
+                ", evevatorDoor=" + evevatorDoor +
+                ", waterWellDoor=" + waterWellDoor +
+                ", electricWellDoor=" + electricWellDoor +
+                ", windowShades=" + windowShades +
+                ", hydrant=" + hydrant +
+                ", mirrors=" + mirrors +
+                ", unitDoor=" + unitDoor +
+                ", hardenGroundArea=" + hardenGroundArea +
+                ", greenArea=" + greenArea +
+                ", noGreenArea=" + noGreenArea +
+                ", waterByPerson=" + waterByPerson +
+                ", isElevator=" + isElevator +
+                ", isSecondWaterElectric=" + isSecondWaterElectric +
+                ", randomIdentify=" + randomIdentify +
+                ", remark=" + remark +
+                "}";
     }
 }
