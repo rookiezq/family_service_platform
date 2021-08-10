@@ -27,9 +27,18 @@ public class FcBuildingController {
 
 
     @RequestMapping("/insertBuildings")
-    public String insertBuildings(String estateCode,Integer buildingNumber){
+    public String insertBuildings(String estateCode, Integer buildingNumber) {
         List<FcBuilding> buildingList = fcBuildingService.insertAndReturnBuildings(estateCode, buildingNumber);
         return new ReturnObject(buildingList).toString();
+    }
+
+    @RequestMapping("/updateBuilding")
+    public String updateBuilding(FcBuilding fcBuilding) {
+        boolean result = fcBuildingService.updateById(fcBuilding);
+        if (result) {
+            return new ReturnObject("楼宇更新成功").toString();
+        }
+        return new ReturnObject("楼宇更新失败").toString();
     }
 }
 
