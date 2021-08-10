@@ -1,6 +1,7 @@
 package com.rookied.controller.fc;
 
 
+import com.rookied.bean.FcBuilding;
 import com.rookied.bean.FcUnit;
 import com.rookied.bean.vo.BuildingMessage;
 import com.rookied.returnJson.ReturnObject;
@@ -31,6 +32,15 @@ public class FcUnitController {
     public String insertBuildings(@RequestBody List<BuildingMessage> buildingMessages) {
         List<FcUnit> units = fcUnitService.insertAndReturnUnits(buildingMessages);
         return new ReturnObject(units).toString();
+    }
+
+    @RequestMapping("/updateUnits")
+    public String updateUnits(@RequestBody List<FcUnit> fcUnits) {
+        boolean result = fcUnitService.updateBatchById(fcUnits);
+        if (result) {
+            return new ReturnObject("单元更新成功").toString();
+        }
+        return new ReturnObject("单元更新失败").toString();
     }
 }
 
