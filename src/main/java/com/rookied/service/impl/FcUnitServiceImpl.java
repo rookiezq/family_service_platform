@@ -38,6 +38,7 @@ public class FcUnitServiceImpl extends ServiceImpl<FcUnitMapper, FcUnit> impleme
                 fcUnit.setBuildingCode(buildingMessage.getBuildingCode());
                 fcUnit.setUnitName("第" + (j + 1) + "单元");
                 fcUnit.setUnitCode("U" + (j + 1));
+                fcUnit.setStartFloor(1);
                 //mbp save
                 save(fcUnit);
                 units.add(fcUnit);
