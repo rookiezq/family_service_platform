@@ -5,6 +5,7 @@ import com.rookied.bean.FcBuilding;
 import com.rookied.returnJson.ReturnObject;
 import com.rookied.service.base.FcBuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +36,15 @@ public class FcBuildingController {
     @RequestMapping("/updateBuilding")
     public String updateBuilding(FcBuilding fcBuilding) {
         boolean result = fcBuildingService.updateById(fcBuilding);
+        if (result) {
+            return new ReturnObject("楼宇更新成功").toString();
+        }
+        return new ReturnObject("楼宇更新失败").toString();
+    }
+
+    @RequestMapping("/updateBuildings")
+    public String updateBuildings(@RequestBody List<FcBuilding> fcBuildings) {
+        boolean result = fcBuildingService.updateBatchById(fcBuildings);
         if (result) {
             return new ReturnObject("楼宇更新成功").toString();
         }
