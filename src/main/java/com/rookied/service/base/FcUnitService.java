@@ -2,6 +2,9 @@ package com.rookied.service.base;
 
 import com.rookied.bean.FcUnit;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.rookied.bean.vo.BuildingMessage;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface FcUnitService extends IService<FcUnit> {
 
+    List<FcUnit> insertAndReturnUnits(List<BuildingMessage> buildingMessages);
 }
