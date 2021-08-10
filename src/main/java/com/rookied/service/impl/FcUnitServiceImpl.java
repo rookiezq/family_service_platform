@@ -31,6 +31,7 @@ public class FcUnitServiceImpl extends ServiceImpl<FcUnitMapper, FcUnit> impleme
         List<FcUnit> units = new ArrayList<>();
         for (BuildingMessage buildingMessage : buildingMessages) {
             Integer unitCount = buildingMessage.getUnitCount();
+            if(unitCount == null || unitCount == 0) continue;
             for (int j = 0; j < unitCount; j++) {
                 FcUnit fcUnit = new FcUnit();
                 //提前设置好一些属性

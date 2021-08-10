@@ -46,7 +46,6 @@ public class FcEstateController {
 
     @RequestMapping("/insertEstate")
     public String insertEstate(FcEstate estate) {
-        System.out.println(estate);
         boolean save = fcEstateService.save(estate);
         if (save) {
             return new ReturnObject("1", "房产插入成功").toString();

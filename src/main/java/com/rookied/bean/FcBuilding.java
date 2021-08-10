@@ -92,7 +92,7 @@ public class FcBuilding implements Serializable {
     /**
      * 单元数量
      */
-    private Double unitCount;
+    private Integer unitCount;
 
     /**
      * 楼宇类型
@@ -311,11 +311,11 @@ public class FcBuilding implements Serializable {
         this.damageGrade = damageGrade;
     }
 
-    public Double getUnitCount() {
+    public Integer getUnitCount() {
         return unitCount;
     }
 
-    public void setUnitCount(Double unitCount) {
+    public void setUnitCount(Integer unitCount) {
         this.unitCount = unitCount;
     }
 

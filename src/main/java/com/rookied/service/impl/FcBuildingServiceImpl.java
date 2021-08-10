@@ -32,6 +32,8 @@ public class FcBuildingServiceImpl extends ServiceImpl<FcBuildingMapper, FcBuild
             //提前设置好一些属性
             fcBuilding.setBuildingCode("B"+(i+1));
             fcBuilding.setBuildingName("第"+(i+1)+"号楼");
+            //默认单元数量为1
+            fcBuilding.setUnitCount(1);
             fcBuilding.setEstateCode(estateCode);
             //mbp save
             save(fcBuilding);
