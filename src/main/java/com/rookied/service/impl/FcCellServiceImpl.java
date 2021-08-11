@@ -35,7 +35,7 @@ public class FcCellServiceImpl extends ServiceImpl<FcCellMapper, FcCell> impleme
                     FcCell fcCell = new FcCell();
                     fcCell.setUnitCode(unit.getUnitCode());
                     fcCell.setCellName(i+"0"+j);
-                    fcCell.setCellCode(unit.getUnitCode()+"C"+i+"0"+j);
+                    fcCell.setCellCode(unit.getUnitCode()+"_C"+i+"0"+j);
                     fcCell.setFloorNumber(i);
                     list.add(fcCell);
                 }

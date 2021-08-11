@@ -37,5 +37,13 @@ public class FcCellController {
         }
         return new ReturnObject("房间插入失败").toString();
     }
+
+    @RequestMapping("/selectCells")
+    public String selectCells(String unitCode) {
+        QueryWrapper<FcCell> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("unit_code", unitCode);
+        List<FcCell> cells = fcCellService.list(queryWrapper);
+        return new ReturnObject(cells).toString();
+    }
 }
 

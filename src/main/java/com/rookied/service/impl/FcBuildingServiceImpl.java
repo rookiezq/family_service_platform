@@ -22,6 +22,7 @@ public class FcBuildingServiceImpl extends ServiceImpl<FcBuildingMapper, FcBuild
 
     /**
      * 维护楼宇信息，先插入对应数量的楼宇，再将插入好的楼宇信息返回
+     *
      * @return 楼宇信息
      */
     @Override
@@ -30,8 +31,8 @@ public class FcBuildingServiceImpl extends ServiceImpl<FcBuildingMapper, FcBuild
         for (int i = 0; i < buildingNumber; i++) {
             FcBuilding fcBuilding = new FcBuilding();
             //提前设置好一些属性
-            fcBuilding.setBuildingCode("B"+(i+1));
-            fcBuilding.setBuildingName((i+1)+"号楼");
+            fcBuilding.setBuildingCode("E" + estateCode + "_B" + (i + 1));
+            fcBuilding.setBuildingName((i + 1) + "号楼");
             //默认单元数量为1
             fcBuilding.setUnitCount(1);
             fcBuilding.setEstateCode(estateCode);

@@ -34,10 +34,11 @@ public class FcUnitServiceImpl extends ServiceImpl<FcUnitMapper, FcUnit> impleme
             if(unitCount == null || unitCount == 0) continue;
             for (int j = 0; j < unitCount; j++) {
                 FcUnit fcUnit = new FcUnit();
+
                 //提前设置好一些属性
                 fcUnit.setBuildingCode(buildingMessage.getBuildingCode());
                 fcUnit.setUnitName("第" + (j + 1) + "单元");
-                fcUnit.setUnitCode("U" + (j + 1));
+                fcUnit.setUnitCode(buildingMessage.getBuildingCode()+"_U" + (j + 1));
                 fcUnit.setStartFloor(1);
                 //mbp save
                 save(fcUnit);
