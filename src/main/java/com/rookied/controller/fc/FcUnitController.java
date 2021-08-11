@@ -1,7 +1,7 @@
 package com.rookied.controller.fc;
 
 
-import com.rookied.bean.FcBuilding;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.rookied.bean.FcUnit;
 import com.rookied.bean.vo.BuildingMessage;
 import com.rookied.returnJson.ReturnObject;
@@ -29,7 +29,7 @@ public class FcUnitController {
     FcUnitService fcUnitService;
 
     @RequestMapping("/insertUnits")
-    public String insertBuildings(@RequestBody List<BuildingMessage> buildingMessages) {
+    public String insertUnits(@RequestBody List<BuildingMessage> buildingMessages) {
         List<FcUnit> units = fcUnitService.insertAndReturnUnits(buildingMessages);
         return new ReturnObject(units).toString();
     }
@@ -41,6 +41,15 @@ public class FcUnitController {
             return new ReturnObject("单元更新成功").toString();
         }
         return new ReturnObject("单元更新失败").toString();
+    }
+
+    @RequestMapping("/selectUnits")
+    public String selectUnits(String buildingCode) {
+        QueryWrapper<FcUnit> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("building_code",buildingCode);
+        queryWrapper.select("unit_name","unit_code");
+        List<FcUnit> units = fcUnitService.list(queryWrapper);
+        return new ReturnObject(units).toString();
     }
 }
 

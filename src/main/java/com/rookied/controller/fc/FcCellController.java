@@ -1,9 +1,18 @@
 package com.rookied.controller.fc;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.rookied.bean.FcCell;
+import com.rookied.bean.FcUnit;
+import com.rookied.returnJson.ReturnObject;
+import com.rookied.service.base.FcCellService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,6 +25,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/fcCell")
 public class FcCellController {
+    @Autowired
+    FcCellService fcCellService;
 
+    @RequestMapping("/insertCells")
+    public String insertCells(@RequestBody List<FcUnit> units) {
+        List<FcCell> cells = fcCellService.insertAndReturnCells(units);
+        boolean b = fcCellService.saveBatch(cells);
+        if (b) {
+            return new ReturnObject(cells).toString();
+        }
+        return new ReturnObject("房间插入失败").toString();
+    }
 }
 

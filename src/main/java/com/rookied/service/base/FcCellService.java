@@ -2,6 +2,9 @@ package com.rookied.service.base;
 
 import com.rookied.bean.FcCell;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.rookied.bean.FcUnit;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface FcCellService extends IService<FcCell> {
 
+    List<FcCell> insertAndReturnCells(List<FcUnit> units);
 }

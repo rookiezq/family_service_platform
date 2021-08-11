@@ -1,6 +1,7 @@
 package com.rookied.controller.fc;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.rookied.bean.FcBuilding;
 import com.rookied.returnJson.ReturnObject;
 import com.rookied.service.base.FcBuildingService;
@@ -49,6 +50,15 @@ public class FcBuildingController {
             return new ReturnObject("楼宇更新成功").toString();
         }
         return new ReturnObject("楼宇更新失败").toString();
+    }
+
+    @RequestMapping("/selectBuildings")
+    public String selectBuildings(String estateCode) {
+        QueryWrapper<FcBuilding> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("estate_code",estateCode);
+        queryWrapper.select("building_code","building_name");
+        List<FcBuilding> buildingList = fcBuildingService.list(queryWrapper);
+        return new ReturnObject(buildingList).toString();
     }
 }
 
