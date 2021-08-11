@@ -2,6 +2,7 @@ package com.rookied.controller.fc;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.rookied.bean.FcBuilding;
 import com.rookied.bean.FcCell;
 import com.rookied.bean.FcUnit;
 import com.rookied.returnJson.ReturnObject;
@@ -44,6 +45,15 @@ public class FcCellController {
         queryWrapper.eq("unit_code", unitCode);
         List<FcCell> cells = fcCellService.list(queryWrapper);
         return new ReturnObject(cells).toString();
+    }
+
+    @RequestMapping("/updateCells")
+    public String updateCells(@RequestBody List<FcCell> fcCells) {
+        boolean result = fcCellService.updateBatchById(fcCells);
+        if (result) {
+            return new ReturnObject("房间更新成功").toString();
+        }
+        return new ReturnObject("房间更新失败").toString();
     }
 }
 
